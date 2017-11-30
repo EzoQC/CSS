@@ -1,0 +1,6 @@
+button#btnSayHi {
+	border: 3px solid #404040;
+	border-radius: 5px;
+	background-color: white;
+	cursor: pointer;
+}
