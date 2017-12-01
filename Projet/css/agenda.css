@@ -1,6 +1,109 @@
-button#btnSayHi {
-	border: 3px solid #404040;
-	border-radius: 5px;
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto';
+	background-color: lightgray;
+}
+
+* {
+	outline: none;
+}
+
+header {
 	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	font-size: 16px;
+}
+
+header .header-start {
+	display: flex;
+}
+
+header .application-title {
+	padding: .75em 2em;
+	font-family: 'Roboto';
+	text-transform: uppercase;
+}
+
+header button.mini-button {
+	padding: 0 .75em;
+	transition: background-color .3s;
+	background-color: white;
+	border: none;
+	border-left: 1px solid lightgray;
+}
+
+header button.mini-button:hover {
+	background-color: #efefef;
 	cursor: pointer;
+}
+
+header button.mini-button:last-child {
+	border-right: 1px solid lightgray;
+}
+
+.header-end {
+	border-left: 1px solid lightgray;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-right: 1em;
+}
+
+.header-end i.fa {
+	font-size: 8px;
+}
+
+.greetings {
+	font-size: .75em;
+	margin: 0 .75em;
+}
+
+.picture {
+	margin-left: 1em;
+	width: 1em;
+	height: 1em;
+	background-color: lime;
+	border-radius: 50%;
+}
+
+section {
+	display: flex;
+	align-items: stretch;
+	flex-grow: 1;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: white;
+	width: 20%;
+	padding: 1em 0;
+}
+
+.menu .menu-item:hover {
+	background-color: #efefef;
+	cursor: pointer;
+}
+
+.menu .menu-item {
+	transition: background-color .3s;
+	padding: .25em;
+	display: flex;
+	font-size: .8em;
+	list-style: none;
+}
+
+.menu .menu-item i.fa {
+	text-align: center;
+	min-width: 15%;
+	color: blue;
 }

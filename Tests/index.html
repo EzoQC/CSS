@@ -1,52 +1,112 @@
-<!DOCTYPE html>
+<!DOCTYPE html
 <html>
 	<head>
 		<title>POC</title>
+		<script
+		  src="https://code.jquery.com/jquery-3.2.1.min.js"
+		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		  crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 		
 		<style>
-			@keyframes blink {
-				0% {
-					opacity: 1;
-				}
-				
-				50% {
-					opacity: 0;
-				}
-				
-				100% {
-					opacity: 1;
-				}
-			}
-			
 			* {
-				outline: none;
-				padding: 0;
 				margin: 0;
+				padding: 0;
+				outline: none;
 			}
 			
 			body {
-				
 				font-family: 'Roboto';
-				display: flex;
+				max-width: 60%;
+				margin: 0 auto;
+			}
+			
+			button {	
+				transition: background-color .3s;
+				border: 3px solid #efefef;
+				border-radius: 15px;
+				background-color: white;
+				padding: 1.5em 2em;
+			}
+			
+			button:hover {
+				background-color: #efefef;
+				cursor: pointer;
+			}
+			
+			.veil {
+				transition: opacity .3s;
+				display: none;
 				align-items: center;
 				justify-content: center;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: rgba(0, 0, 0, .5);
+				opacity: 0;
 			}
 			
-			html, body {
-				height: 100%;
-				min-height: 100%;
-				max-height: 100%;
+			.veil .popover {
+				border-radius: 25px;
+				padding: 1em;
+				border: 3px solid #efefef;
+				background-color: white;
+				width: 40%;
+				box-shadow: 2px 2px 10px black;
 			}
 			
-			h1 {
-				animation: 3s blink infinite;
+			.veil .popover .header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 			}
+			
+			.veil .popover .header i.fa {
+				transition: background-color .3s;
+				cursor: pointer;
+				padding: .25em;
+				border-radius: 10px;
+			}
+			
+			.veil .popover .header i.fa:hover {
+				background-color: #efefef;
+			}
+			
 		</style>
+		
 	</head>
 	<body>
-		<h1>Have fun!</h1>
+		<h1>Démo Veil + PopOver</h1>
+		<button type="button" id="openBtn">Ouvrir</button>
+		
+		<div class="veil">
+			<div class="popover">
+				<div class="header">
+					<h1>Title</h1>
+					<i class="fa fa-close"></i>
+				</div>
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id mi varius, pharetra mi a, rhoncus orci. Nulla posuere urna ut tellus molestie, nec interdum nulla convallis. Sed urna quam, malesuada eu risus vitae, fringilla ultricies lectus. Aenean aliquet, sem vel feugiat sodales, dui diam blandit ligula, quis fringilla metus erat finibus purus. Integer libero diam, eleifend sit amet augue et, suscipit laoreet libero. Vivamus eget euismod lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus luctus sollicitudin rutrum.
+				</div>
+			</div>
+		</div>
+		
+		
+		<script>
+			$('#openBtn').click(function () {
+				$('.veil').css('display', 'flex');
+				$('.veil').animate({opacity: 1}, 300);
+			});
+			
+			$('.fa-close').click(function () {
+				$('.veil').animate({ opacity: 0 }, 300, function () {
+					$('.veil').css('display', 'none');
+				});
+			});
+		</script>
 	</body>
 </html>
 
